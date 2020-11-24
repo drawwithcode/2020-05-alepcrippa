@@ -19,8 +19,8 @@ io.on("connection", newConnection) //"connection" is the default message sent by
 function newConnection(sock){
   console.log("new connection: " + sock.client.id);
 
-  sock.emit("color",getRandomColor());
-  
+  // sock.emit("color",getRandomColor());
+
   sock.on("mousee", mouseMessage);
 
   function mouseMessage(dataMouse){
@@ -28,13 +28,4 @@ function newConnection(sock){
     sock.broadcast.emit("mouseBroad", dataMouse);
   }
 
-}
-
-function getRandomColor(){
-  var letters = "0123456789ABCDEF";
-  var color = "#";
-  for (let i = 0; i < 6; i++){
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
 }
