@@ -175,7 +175,7 @@ function setUp(){
   sliderStroke.size(80);
   textSize(15);
   textFont("Ubuntu")
-  t = text("stroke", windowWidth - 95, 390+75);
+  text("stroke", windowWidth - 95, 390+75);
   //slider edge
   sliderEdge = createSlider (10, 120, 50);
   sliderEdge.position(windowWidth - 100, 460+75);
