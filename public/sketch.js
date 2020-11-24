@@ -13,15 +13,12 @@ let strokeW = 0.5;
 socket.on("connect", newConnection);
 socket.on("mouseBroad", drawOtherMouses);
 
-//my variables
 let edge = 50; //size of the circle area each particle is allowed to move
 let drawing = false; // I want to raw only when I click
 
 function drawOtherMouses(mouseData){
   push();
     colorMode(HSB);
-    console.log("mouse data: ")
-    console.log(mouseData);
       let otherColor = color(mouseData.h, 100, mouseData.b);
       let otherStrokeColor = color(mouseData.sh, 100, mouseData.sb);
       branchOut(mouseData.x, mouseData.y,otherColor,otherStrokeColor, mouseData.sw, mouseData.e);
@@ -45,7 +42,6 @@ function setup() {
 
 function draw() {
   strokeW = sliderStroke.value()/20;
-  print(sliderEdge.value());
   edge = sliderEdge.value();
  }
 
@@ -83,7 +79,6 @@ function mousePressed(){
 }//end mousePressed
 
 function mouseDragged(){
-  print("myHue: " + myHue)
   if (mouseX<windowWidth - 100 - edge){
     let message = {
       x: mouseX,
@@ -96,10 +91,8 @@ function mouseDragged(){
       e: edge,
     };
     branchOut(mouseX,mouseY,myColor,strokeColor,strokeW,edge);
-    console.log('GGG')
     socket.emit("mousee", message)
   }
-  console.log('strokeColor: ' + strokeColor);
 }
 
 
