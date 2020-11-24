@@ -3,7 +3,7 @@ let express = require("express");
 let app = express();
 
 //set up the local host
-let port = 3000;
+let port = process.env.PORT || 3000;
 let server = app.listen(port);
 
 //saying that what is inside the public folder has to be sent to the clients
