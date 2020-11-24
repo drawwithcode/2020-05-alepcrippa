@@ -120,10 +120,10 @@ class Root {
     const distanceY = this.y - this.centerY;
     const distance = sqrt(distanceX * distanceX + distanceY *distanceY);
     //current size of the particle
-    const radius = (-distance / this.edge + 1) * this.edge / 7; //try to put 1 instead of edge/10 later
+    const radius = (-distance / this.edge + 1) * this.edge / 7;
 
     if (radius > 0){ //the particle hasn't reached the edge
-    requestAnimationFrame(this.draw.bind(this)); //we give it its own request animation frame loop
+    requestAnimationFrame(this.draw.bind(this));
       fill(this.color);
       ellipse(this.x, this.y, radius);
       strokeWeight(this.strokeW);
@@ -144,18 +144,18 @@ function branchOut(_x, _y, _col, _strokeCol, _strokeW, _edge){
 
 function setUp(){
   push();
-    //barra strumenti laterale
+    //toolbar
     fill('FloralWhite');
     rect(windowWidth-100,0,85,windowHeight);
 
-    //tavolozza dei colori
+    //color palette
     for(let i = 0; i < 300; i++){
       let hue = map(i,0,300,0,360);
       for (let j = 0; j < 65; j++){
         let brightness = map(j,0,65,100,0);
         fill(hue, 100, brightness);
         noStroke();
-        rect(windowWidth-90+j,140+i,65-j,1)//55
+        rect(windowWidth-90+j,140+i,65-j,1)
       }
     }
   pop();
