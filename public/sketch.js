@@ -43,6 +43,20 @@ function setup() {
 function draw() {
   strokeW = sliderStroke.value()/20;
   edge = sliderEdge.value();
+
+  push();
+    fill('FloralWhite');
+    noStroke();
+    rect(windowWidth - 98, 390+60, 70,20);
+  pop();
+  textFont("Ubuntu");
+  text("stroke", windowWidth - 95, 390+75);
+  push()
+    fill('FloralWhite');
+    noStroke();
+    rect(windowWidth - 98, 390+105, 80,40);
+  pop();
+  text("branches \n dimension", windowWidth - 95, 435+75);
  }
 
 function mousePressed(){
@@ -175,10 +189,10 @@ function setUp(){
   sliderStroke.size(80);
   textSize(15);
   textFont("Ubuntu")
-  text("stroke", windowWidth - 95, 390+75);
+  // text("stroke", windowWidth - 95, 390+75);
   //slider edge
   sliderEdge = createSlider (10, 120, 50);
   sliderEdge.position(windowWidth - 100, 460+75);
   sliderEdge.size(80);
-  t2 = text("branches \n dimension", windowWidth - 95, 435+75);
+  //text("branches \n dimension", windowWidth - 95, 435+75);
 }
