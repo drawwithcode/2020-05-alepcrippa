@@ -19,12 +19,10 @@ io.on("connection", newConnection) //"connection" is the default message sent by
 function newConnection(sock){
   console.log("new connection: " + sock.client.id);
 
-  // sock.emit("color",getRandomColor());
-
   sock.on("mousee", mouseMessage);
 
   function mouseMessage(dataMouse){
-    console.log(sock.client.id, dataMouse);
+    console.log(sock.client.id);
     sock.broadcast.emit("mouseBroad", dataMouse);
   }
 
